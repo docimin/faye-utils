@@ -5,7 +5,7 @@
  * @param name The name of the cookie.
  * @example
  * ```ts
- * import { getCookie } from "@faye/utils"
+ * import { getCookie } from "@docimin/utils"
  *
  * const cookie = getCookie("orgId")
  * ```

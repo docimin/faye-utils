@@ -8,7 +8,7 @@ import { useSettings } from "./use-settings"
  * Hook to get the radius
  * @example
  * ```ts
- * import { useRadius } from "@faye/hooks"
+ * import { useRadius } from "@docimin/hooks"
  *
  * const radius = useRadius()
  * ```

@@ -10,7 +10,7 @@ import { useSettings } from "../hooks/use-settings"
  * Provider for the theme
  * @example
  * ```ts
- * import { ThemeProvider } from "@faye/providers"
+ * import { ThemeProvider } from "@docimin/providers"
  *
  * <ThemeProvider>
  *   <App />

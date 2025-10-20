@@ -12,7 +12,7 @@ const defaultModes = ["light", "dark"]
  * Provider for the mode
  * @example
  * ```ts
- * import { ModeProvider } from "@faye/providers"
+ * import { ModeProvider } from "@docimin/providers"
  *
  * <ModeProvider>
  *   <App />

@@ -68,7 +68,7 @@ jobs:
 
       - name: Configure Bun for GitHub Packages
         run: |
-          echo "@faye:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "@docimin:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
       - name: Publish to GitHub Packages

@@ -4,7 +4,7 @@ import type { RouteConfig, RouteType } from "../configs/auth-routes"
  * Strip the locale from the route
  * @example
  * ```ts
- * import { stripLocale } from "@faye/lib"
+ * import { stripLocale } from "@docimin/lib"
  *
  * const routeWithoutLocale = stripLocale("/en/dashboard")
  * ```
@@ -19,7 +19,7 @@ const stripLocale = (route: string): string => {
  * Get the base path from the route
  * @example
  * ```ts
- * import { getBasePath } from "@faye/lib"
+ * import { getBasePath } from "@docimin/lib"
  *
  * const basePath = getBasePath("/user/settings")
  * ```
@@ -38,7 +38,7 @@ const getBasePath = (route: string): string => {
  * Check if the route is of a certain type
  * @example
  * ```ts
- * import { isRouteType } from "@faye/lib"
+ * import { isRouteType } from "@docimin/lib"
  *
  * const isPublicRoute = isRouteType("/user", "public", routeConfig)
  * ```
@@ -64,7 +64,7 @@ function isRouteType(
  * Check if the route is public
  * @example
  * ```ts
- * import { isPublicRoute } from "@faye/lib"
+ * import { isPublicRoute } from "@docimin/lib"
  *
  * const isPublicRoute = isPublicRoute("/user", routeConfig)
  * ```
@@ -80,7 +80,7 @@ export function isPublicRoute(
  * Check if the route is guest
  * @example
  * ```ts
- * import { isGuestRoute } from "@faye/lib"
+ * import { isGuestRoute } from "@docimin/lib"
  *
  * const isGuestRoute = isGuestRoute("/user", routeConfig)
  * ```
@@ -93,7 +93,7 @@ export function isGuestRoute(route: string, routeConfig: RouteConfig): boolean {
  * Check if the route is protected
  * @example
  * ```ts
- * import { isProtectedRoute } from "@faye/lib"
+ * import { isProtectedRoute } from "@docimin/lib"
  *
  * const isProtectedRoute = isProtectedRoute("/user", routeConfig)
  * ```

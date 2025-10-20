@@ -1,4 +1,4 @@
-# @faye/components
+# @docimin/components
 
 A modern TypeScript component library built with React 18, TypeScript 5, and Tailwind CSS.
 
@@ -14,7 +14,7 @@ A modern TypeScript component library built with React 18, TypeScript 5, and Tai
 ## Installation
 
 ```bash
-bun install @faye/utils
+bun install @docimin/utils
 ```
 
 ## License

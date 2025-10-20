@@ -8,7 +8,7 @@ import { useSettings } from "./use-settings"
  * Hook to check if the mode is dark
  * @example
  * ```ts
- * import { useIsDarkMode } from "@faye/hooks"
+ * import { useIsDarkMode } from "@docimin/hooks"
  *
  * const isDarkMode = useIsDarkMode()
  * ```
