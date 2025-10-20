@@ -8,6 +8,17 @@ import { useIsDarkMode } from "../hooks/use-mode"
 
 const defaultModes = ["light", "dark"]
 
+/**
+ * Provider for the mode
+ * @example
+ * ```ts
+ * import { ModeProvider } from "@faye/providers"
+ *
+ * <ModeProvider>
+ *   <App />
+ * </ModeProvider>
+ * ```
+ */
 export function ModeProvider({ children }: { children: ReactNode }) {
   const isDarkMode = useIsDarkMode()
   const mode = isDarkMode ? "dark" : "light"

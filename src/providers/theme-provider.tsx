@@ -6,6 +6,17 @@ import type { ReactNode } from "react"
 
 import { useSettings } from "../hooks/use-settings"
 
+/**
+ * Provider for the theme
+ * @example
+ * ```ts
+ * import { ThemeProvider } from "@faye/providers"
+ *
+ * <ThemeProvider>
+ *   <App />
+ * </ThemeProvider>
+ * ```
+ */
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const { settings } = useSettings()
 

@@ -2,7 +2,16 @@
 
 import { useDirection } from "@radix-ui/react-direction"
 
-export function useIsRtl() {
+/**
+ * Hook to check if the direction is RTL
+ * @example
+ * ```ts
+ * import { useIsRtl } from "@faye/hooks"
+ *
+ * const isRtl = useIsRtl()
+ * ```
+ */
+export function useIsRtl(): boolean {
   const direction = useDirection()
 
   const isRtl = direction === "rtl"

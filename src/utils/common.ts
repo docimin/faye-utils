@@ -3,7 +3,12 @@
  * Retrieve the value of a cookie by its name.
  * @return The value of the cookie, or undefined if the cookie does not exist.
  * @param name The name of the cookie.
- * @example getCookie('orgId')
+ * @example
+ * ```ts
+ * import { getCookie } from "@faye/utils"
+ *
+ * const cookie = getCookie("orgId")
+ * ```
  */
 export function getCookie(name: string): string | undefined {
   if (typeof document !== "undefined") {

@@ -1,4 +1,3 @@
-
 import { clsx } from "clsx"
 import { format, formatDistanceToNow, intervalToDuration } from "date-fns"
 import { twMerge } from "tailwind-merge"
@@ -7,13 +6,40 @@ import { z } from "zod"
 import type { ClassValue } from "clsx"
 import type { FormatStyleType, LocaleType } from "../types"
 
+/**
+ * Merge class names
+ * @example
+ * ```ts
+ * import { cn } from "@faye/lib"
+ *
+ * const className = cn("text-red-500", "bg-blue-500")
+ * ```
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+/**
+ * Check if a number is even
+ * @example
+ * ```ts
+ * import { isEven } from "@faye/lib"
+ *
+ * const isEven = isEven(4)
+ * ```
+ */
 export const isEven = (num: number) => num % 2 === 0
 
-export function remToPx(rem: number) {
+/**
+ * Convert rem to px
+ * @example
+ * ```ts
+ * import { remToPx } from "@faye/lib"
+ *
+ * const px = remToPx(16)
+ * ```
+ */
+export function remToPx(rem: number): number {
   // Get the root font size (default is 16px if not set otherwise)
   const rootFontSize = parseFloat(
     getComputedStyle(document.documentElement).fontSize
@@ -21,15 +47,33 @@ export function remToPx(rem: number) {
   return rem * rootFontSize
 }
 
-export function isUrl(text: string) {
+/**
+ * Check if a string is a URL
+ * @example
+ * ```ts
+ * import { isUrl } from "@faye/lib"
+ *
+ * const isUrl = isUrl("https://www.google.com")
+ * ```
+ */
+export function isUrl(text: string): boolean {
   return z.url().safeParse(text).success
 }
 
+/**
+ * Check if a pathname is active
+ * @example
+ * ```ts
+ * import { isActivePathname } from "@faye/lib"
+ *
+ * const isActive = isActivePathname("/dashboard", "/dashboard/stats")
+ * ```
+ */
 export function isActivePathname(
   basePathname: string,
   currentPathname: string,
   exactMatch: boolean = false
-) {
+): boolean {
   if (typeof basePathname !== "string" || typeof currentPathname !== "string") {
     throw new Error("Both basePathname and currentPathname must be strings")
   }
@@ -48,7 +92,16 @@ export function isActivePathname(
   )
 }
 
-export function formatFileSize(bytes: number, decimals: number = 2) {
+/**
+ * Format a file size
+ * @example
+ * ```ts
+ * import { formatFileSize } from "@faye/lib"
+ *
+ * const fileSize = formatFileSize(1024)
+ * ```
+ */
+export function formatFileSize(bytes: number, decimals: number = 2): string {
   if (bytes === 0) return "0 Bytes"
 
   const k = 1000 // Use 1024 for binary
@@ -60,26 +113,53 @@ export function formatFileSize(bytes: number, decimals: number = 2) {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i]
 }
 
-export function formatFileType(type: string) {
+/**
+ * Format a file type
+ * @example
+ * ```ts
+ * import { formatFileType } from "@faye/lib"
+ *
+ * const fileType = formatFileType("image/png")
+ * ```
+ */
+export function formatFileType(type: string): string {
   return type.slice(0, type.lastIndexOf("/"))
 }
 
+/**
+ * Convert a rating to a percentage
+ * @example
+ * ```ts
+ * import { ratingToPercentage } from "@faye/lib"
+ *
+ * const percentage = ratingToPercentage(4, 5)
+ * ```
+ */
 export function ratingToPercentage(
   rating: number,
   maxRating: number,
   fractionDigits: number = 0
-) {
+): string {
   const value = ((rating / maxRating) * 100).toFixed(fractionDigits)
   const result = value + "%"
 
   return result
 }
 
+/**
+ * Format a currency
+ * @example
+ * ```ts
+ * import { formatCurrency } from "@faye/lib"
+ *
+ * const currency = formatCurrency(1000)
+ * ```
+ */
 export function formatCurrency(
   value: number,
   locales: LocaleType = "en",
   currency: string = "USD"
-) {
+): string {
   return new Intl.NumberFormat(locales, {
     style: "currency",
     currency,
@@ -87,18 +167,48 @@ export function formatCurrency(
   }).format(value)
 }
 
-export function formatPercent(value: number, locales: LocaleType = "en") {
+/**
+ * Format a percentage
+ * @example
+ * ```ts
+ * import { formatPercent } from "@faye/lib"
+ *
+ * const percentage = formatPercent(100)
+ * ```
+ */
+export function formatPercent(
+  value: number,
+  locales: LocaleType = "en"
+): string {
   return new Intl.NumberFormat(locales, {
     style: "percent",
     maximumFractionDigits: 0,
   }).format(value)
 }
 
-export function formatDate(value: string | number | Date) {
+/**
+ * Format a date
+ * @example
+ * ```ts
+ * import { formatDate } from "@faye/lib"
+ *
+ * const date = formatDate("2021-01-01")
+ * ```
+ */
+export function formatDate(value: string | number | Date): string {
   return format(value, "PP")
 }
 
-export function formatRelativeDate(value?: string | number | Date) {
+/**
+ * Format a relative date
+ * @example
+ * ```ts
+ * import { formatRelativeDate } from "@faye/lib"
+ *
+ * const relativeDate = formatRelativeDate("2021-01-01")
+ * ```
+ */
+export function formatRelativeDate(value?: string | number | Date): string {
   if (!value) return "No Date"
 
   const date = new Date(value)
@@ -112,19 +222,55 @@ export function formatRelativeDate(value?: string | number | Date) {
   return formatDate(value)
 }
 
-export function formatDateWithTime(value: string | number | Date) {
+/**
+ * Format a date with time
+ * @example
+ * ```ts
+ * import { formatDateWithTime } from "@faye/lib"
+ *
+ * const dateWithTime = formatDateWithTime("2021-01-01")
+ * ```
+ */
+export function formatDateWithTime(value: string | number | Date): string {
   return format(value, "PP hh:mm a")
 }
 
-export function formatDateShort(value: string | number | Date) {
+/**
+ * Format a date short
+ * @example
+ * ```ts
+ * import { formatDateShort } from "@faye/lib"
+ *
+ * const dateShort = formatDateShort("2021-01-01")
+ * ```
+ */
+export function formatDateShort(value: string | number | Date): string {
   return format(value, "MMM dd")
 }
 
-export function formatTime(value: string | number | Date) {
+/**
+ * Format a time
+ * @example
+ * ```ts
+ * import { formatTime } from "@faye/lib"
+ *
+ * const time = formatTime("2021-01-01")
+ * ```
+ */
+export function formatTime(value: string | number | Date): string {
   return format(value, "h:mm a")
 }
 
-export function formatDuration(value: string | number | Date) {
+/**
+ * Format a duration
+ * @example
+ * ```ts
+ * import { formatDuration } from "@faye/lib"
+ *
+ * const duration = formatDuration("2021-01-01")
+ * ```
+ */
+export function formatDuration(value: string | number | Date): string {
   const numberValue = Number(value)
   const isNegative = numberValue < 0
   const absoluteValue = Math.abs(numberValue)
@@ -140,7 +286,16 @@ export function formatDuration(value: string | number | Date) {
   return isNegative ? `-${formattedDuration}` : formattedDuration
 }
 
-export function formatDistance(value: string | number | Date) {
+/**
+ * Format a distance
+ * @example
+ * ```ts
+ * import { formatDistance } from "@faye/lib"
+ *
+ * const distance = formatDistance("2021-01-01")
+ * ```
+ */
+export function formatDistance(value: string | number | Date): string {
   const distance = formatDistanceToNow(value, { addSuffix: true })
 
   const replacements: Record<string, string> = {
@@ -164,21 +319,40 @@ export function formatDistance(value: string | number | Date) {
   return distance
     .replace(
       /less than a minute|minute|minutes|hour|hours|day|days|month|months|year|years/g,
-      (match: string) => replacements[match] ?? match    )
+      (match: string) => replacements[match] ?? match
+    )
     .replace(/\b(over|almost|about)\b/g, "")
 }
 
+/**
+ * Format a number to compact
+ * @example
+ * ```ts
+ * import { formatNumberToCompact } from "@faye/lib"
+ *
+ * const compact = formatNumberToCompact(1000)
+ * ```
+ */
 export function formatNumberToCompact(
   value: number,
   locales: LocaleType = "en"
-) {
+): string {
   return new Intl.NumberFormat(locales, {
     notation: "compact",
     compactDisplay: "short",
   }).format(value)
 }
 
-export function timeToDate(timeString: string, baseDate = new Date()) {
+/**
+ * Convert a time string to a date
+ * @example
+ * ```ts
+ * import { timeToDate } from "@faye/lib"
+ *
+ * const date = timeToDate("12:00")
+ * ```
+ */
+export function timeToDate(timeString: string, baseDate = new Date()): Date {
   if (!/^\d{2}:\d{2}$/.test(timeString)) {
     throw new Error("Invalid time format. Use 'HH:mm'.")
   }
@@ -191,7 +365,16 @@ export function timeToDate(timeString: string, baseDate = new Date()) {
   return date
 }
 
-export function camelCaseToTitleCase(camelCaseStr: string) {
+/**
+ * Convert a camel case string to a title case string
+ * @example
+ * ```ts
+ * import { camelCaseToTitleCase } from "@faye/lib"
+ *
+ * const titleCase = camelCaseToTitleCase("camelCase")
+ * ```
+ */
+export function camelCaseToTitleCase(camelCaseStr: string): string {
   const titleCaseStr = camelCaseStr
     .replace(/([A-Z])/g, " $1") // Insert space before uppercase letters
     .replace(/^./, (char) => char.toUpperCase()) // Capitalize the first letter
@@ -199,7 +382,16 @@ export function camelCaseToTitleCase(camelCaseStr: string) {
   return titleCaseStr
 }
 
-export function titleCaseToCamelCase(titleCaseStr: string) {
+/**
+ * Convert a title case string to a camel case string
+ * @example
+ * ```ts
+ * import { titleCaseToCamelCase } from "@faye/lib"
+ *
+ * const camelCase = titleCaseToCamelCase("Title Case")
+ * ```
+ */
+export function titleCaseToCamelCase(titleCaseStr: string): string {
   const camelCaseStr = titleCaseStr
     .toLowerCase() // Convert the entire string to lowercase first
     .replace(/\s+(.)/g, (_, char) => char.toUpperCase()) // Remove spaces and capitalize the following character
@@ -207,33 +399,87 @@ export function titleCaseToCamelCase(titleCaseStr: string) {
   return camelCaseStr
 }
 
-export function slugify(text: string) {
+/**
+ * Convert a text to a slug
+ * @example
+ * ```ts
+ * import { slugify } from "@faye/lib"
+ *
+ * const slug = slugify("Hello World")
+ * ```
+ */
+export function slugify(text: string): string {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric chars with "-"
     .replace(/^-+|-+$/g, "") // Remove leading/trailing dashes
 }
 
-export function ensureWithPrefix(value: string, prefix: string) {
+/**
+ * Ensure a string starts with a prefix
+ * @example
+ * ```ts
+ * import { ensureWithPrefix } from "@faye/lib"
+ *
+ * const prefixed = ensureWithPrefix("Hello", "Hello")
+ * ```
+ */
+export function ensureWithPrefix(value: string, prefix: string): string {
   return value.startsWith(prefix) ? value : `${prefix}${value}`
 }
 
-export function ensureWithSuffix(value: string, suffix: string) {
+/**
+ * Ensure a string ends with a suffix
+ * @example
+ * ```ts
+ * import { ensureWithSuffix } from "@faye/lib"
+ *
+ * const suffixed = ensureWithSuffix("Hello", "Hello")
+ * ```
+ */
+export function ensureWithSuffix(value: string, suffix: string): string {
   return value.endsWith(suffix) ? value : `${value}${suffix}`
 }
 
-export function ensureWithoutSuffix(value: string, suffix: string) {
+/**
+ * Ensure a string does not end with a suffix
+ * @example
+ * ```ts
+ * import { ensureWithoutSuffix } from "@faye/lib"
+ *
+ * const withoutSuffix = ensureWithoutSuffix("Hello", "Hello")
+ * ```
+ */
+export function ensureWithoutSuffix(value: string, suffix: string): string {
   return value.endsWith(suffix) ? value.slice(0, -suffix.length) : value
 }
 
-export function ensureWithoutPrefix(value: string, prefix: string) {
+/**
+ * Ensure a string does not start with a prefix
+ * @example
+ * ```ts
+ * import { ensureWithoutPrefix } from "@faye/lib"
+ *
+ * const withoutPrefix = ensureWithoutPrefix("Hello", "Hello")
+ * ```
+ */
+export function ensureWithoutPrefix(value: string, prefix: string): string {
   return value.startsWith(prefix) ? value.slice(prefix.length) : value
 }
 
+/**
+ * Ensure a redirect pathname
+ * @example
+ * ```ts
+ * import { ensureRedirectPathname } from "@faye/lib"
+ *
+ * const redirectPathname = ensureRedirectPathname("/dashboard", "/dashboard/stats")
+ * ```
+ */
 export function ensureRedirectPathname(
   basePathname: string,
   redirectPathname: string
-) {
+): string {
   const searchParams = new URLSearchParams({
     redirectTo: ensureWithoutSuffix(redirectPathname, "/"),
   })
@@ -241,15 +487,33 @@ export function ensureRedirectPathname(
   return ensureWithSuffix(basePathname, "?" + searchParams.toString())
 }
 
-export function isNonNegative(num: number) {
+/**
+ * Check if a number is non-negative
+ * @example
+ * ```ts
+ * import { isNonNegative } from "@faye/lib"
+ *
+ * const isNonNegative = isNonNegative(100)
+ * ```
+ */
+export function isNonNegative(num: number): boolean {
   return num >= 0
 }
 
+/**
+ * Get a discounted price
+ * @example
+ * ```ts
+ * import { getDiscountedPrice } from "@faye/lib"
+ *
+ * const discountedPrice = getDiscountedPrice(100, 0.1)
+ * ```
+ */
 export function getDiscountedPrice(
   price: number,
   discountRate: number,
   isAnnual: boolean = false
-) {
+): number {
   if (isAnnual) {
     // Apply discount to the annual price
     const annualPrice = price * 12
@@ -265,7 +529,16 @@ export function getDiscountedPrice(
   }
 }
 
-export function isBeforeToday(date: Date) {
+/**
+ * Check if a date is before today
+ * @example
+ * ```ts
+ * import { isBeforeToday } from "@faye/lib"
+ *
+ * const isBeforeToday = isBeforeToday(new Date())
+ * ```
+ */
+export function isBeforeToday(date: Date): boolean {
   // Get the start of today
   const startOfToday = new Date(new Date().setHours(0, 0, 0, 0))
 
@@ -273,15 +546,42 @@ export function isBeforeToday(date: Date) {
   return date < startOfToday
 }
 
-export function formatUnreadCount(unreadCount: number) {
+/**
+ * Format an unread count
+ * @example
+ * ```ts
+ * import { formatUnreadCount } from "@faye/lib"
+ *
+ * const unreadCount = formatUnreadCount(100)
+ * ```
+ */
+export function formatUnreadCount(unreadCount: number): number | string {
   // If the unread count is 100 or more, display "+99"; otherwise, display the actual unread count.
   return unreadCount >= 100 ? "+99" : unreadCount
 }
 
-export function wait(ms: number = 250) {
+/**
+ * Wait for a number of milliseconds
+ * @example
+ * ```ts
+ * import { wait } from "@faye/lib"
+ *
+ * const result = await wait(1000)
+ * ```
+ */
+export function wait(ms: number = 250): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+/**
+ * Format an overview card value
+ * @example
+ * ```ts
+ * import { formatOverviewCardValue } from "@faye/lib"
+ *
+ * const value = formatOverviewCardValue(100, "percent")
+ * ```
+ */
 export function formatOverviewCardValue(
   value: number,
   formatStyle: FormatStyleType

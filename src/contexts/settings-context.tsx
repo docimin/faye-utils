@@ -3,8 +3,8 @@
 import { createContext, useCallback, useEffect, useState } from "react"
 import { useCookie } from "react-use"
 
-import type { LocaleType, SettingsType } from "../types"
 import type { ReactNode } from "react"
+import type { LocaleType, SettingsType } from "../types"
 
 export const defaultSettings: SettingsType = {
   theme: "zinc",
@@ -23,6 +23,22 @@ export const SettingsContext = createContext<
   | undefined
 >(undefined)
 
+/**
+ * Context for the settings
+ * @example
+ * ```ts
+ * import { SettingsProvider } from "@faye/contexts"
+ *
+ * function SettingsProvider({ children }: { children: ReactNode }) {
+ *   const { settings, updateSettings, resetSettings } = useContext(SettingsContext)
+ *
+ *   return (
+ *     <SettingsProvider locale="en">
+ *       {children}
+ *     </SettingsProvider>
+ *   )
+ * }
+ */
 export function SettingsProvider({
   locale,
   children,

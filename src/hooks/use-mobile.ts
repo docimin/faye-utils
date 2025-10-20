@@ -1,11 +1,22 @@
-import * as React from "react"
+"use client"
+
+import { useEffect, useState } from "react"
 
 const MOBILE_BREAKPOINT = 1280
 
-export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+/**
+ * Hook to check if the screen is mobile
+ * @example
+ * ```ts
+ * import { useIsMobile } from "@faye/hooks"
+ *
+ * const isMobile = useIsMobile()
+ * ```
+ */
+export function useIsMobile(): boolean {
+  const [isMobile, setIsMobile] = useState<boolean | undefined>(undefined)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
