@@ -95,7 +95,7 @@ export function isUrl(text: string): boolean {
 export function isActivePathname(
   basePathname: string,
   currentPathname: string,
-  exactMatch: boolean = false
+  exactMatch: boolean = true
 ): boolean {
   if (typeof basePathname !== "string" || typeof currentPathname !== "string") {
     throw new Error("Both basePathname and currentPathname must be strings")
