@@ -8,6 +8,7 @@
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
     },
+    "packageManager": "bun@1.3.0",
     "devDependencies": {
         "@ianvs/prettier-plugin-sort-imports": "4.6.2",
         "@radix-ui/react-direction": "^1.1.1",
@@ -68,8 +69,8 @@
         "build": "bun build --no-compress --format esm --format cjs --external react --entrypoint src/index.ts --outdir dist",
         "build:watch": "bun build --no-compress --format esm --format cjs --external react --watch --entrypoint src/index.ts --outdir dist --watch",
         "lint": "eslint . --ext .ts,.tsx",
-        "prepublishOnly": "bun build",
-        "type-check": "tsc --noEmit"
+        "type-check": "tsc --noEmit",
+        "publish": "bun publish --access public "
     },
     "type": "module",
     "types": "./dist/index.d.ts",
