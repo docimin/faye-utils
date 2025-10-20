@@ -138,6 +138,26 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">
 
+/**
+ * Hook to use the toast
+ * @example
+ * ```ts
+ * import { useToast } from "@faye/hooks"
+ *
+ * const { toast } = useToast()
+ * toast({
+ *   title: "Hello",
+ *   description: "Hello, world!",
+ *   variant: "success",
+ *   action: {
+ *     label: "Close",
+ *     onClick: () => {
+ *       console.log("Close")
+ *     },
+ *   },
+ * })
+ * ```
+ */
 function toast({ ...props }: Toast) {
   const id = genId()
 
