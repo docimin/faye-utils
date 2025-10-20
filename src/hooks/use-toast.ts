@@ -142,7 +142,7 @@ type Toast = Omit<ToasterToast, "id">
  * Hook to use the toast
  * @example
  * ```ts
- * import { useToast } from "@docimin/hooks"
+ * import { useToast } from "@docimin/utils"
  *
  * const { toast } = useToast()
  * toast({
@@ -191,7 +191,7 @@ function toast({ ...props }: Toast) {
  * Hook to use the toast
  * @example
  * ```ts
- * import { useToast } from "@docimin/hooks"
+ * import { useToast } from "@docimin/utils"
  *
  * const { toast } = useToast()
  * ```

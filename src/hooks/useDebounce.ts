@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
  * Hook to debounce a value
  * @example
  * ```ts
- * import { useDebounce } from "@docimin/hooks"
+ * import { useDebounce } from "@docimin/utils"
  *
  * const debouncedValue = useDebounce(value, delay)
  * ```

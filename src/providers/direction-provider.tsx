@@ -9,7 +9,7 @@ import type { DirectionType } from "../types"
  * Provider for the direction
  * @example
  * ```ts
- * import { DirectionProvider } from "@docimin/providers"
+ * import { DirectionProvider } from "@docimin/utils"
  *
  * <DirectionProvider direction="ltr">
  *   <App />

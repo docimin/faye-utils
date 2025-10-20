@@ -1,4 +1,4 @@
-# @docimin/components
+# @docimin/utils
 
 A modern TypeScript component library built with React 18, TypeScript 5, and Tailwind CSS.
 

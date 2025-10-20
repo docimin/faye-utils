@@ -8,7 +8,7 @@ import { SettingsContext } from "../contexts/settings-context"
  * Hook to get the settings
  * @example
  * ```ts
- * import { useSettings } from "@docimin/hooks"
+ * import { useSettings } from "@docimin/utils"
  *
  * const { settings } = useSettings()
  * ```

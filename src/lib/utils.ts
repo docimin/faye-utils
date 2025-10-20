@@ -10,7 +10,7 @@ import type { FormatStyleType, LocaleType } from "../types"
  * Merge class names
  * @example
  * ```ts
- * import { cn } from "@docimin/lib"
+ * import { cn } from "@docimin/utils"
  *
  * const className = cn("text-red-500", "bg-blue-500")
  * ```
@@ -23,7 +23,7 @@ export function cn(...inputs: ClassValue[]) {
  * Check if a number is even
  * @example
  * ```ts
- * import { isEven } from "@docimin/lib"
+ * import { isEven } from "@docimin/utils"
  *
  * const isEven = isEven(4)
  * ```
@@ -34,7 +34,7 @@ export const isEven = (num: number) => num % 2 === 0
  * Convert rem to px
  * @example
  * ```ts
- * import { remToPx } from "@docimin/lib"
+ * import { remToPx } from "@docimin/utils"
  *
  * const px = remToPx(16)
  * ```
@@ -51,7 +51,7 @@ export function remToPx(rem: number): number {
  * Check if a string is a URL
  * @example
  * ```ts
- * import { isUrl } from "@docimin/lib"
+ * import { isUrl } from "@docimin/utils"
  *
  * const isUrl = isUrl("https://www.google.com")
  * ```
@@ -64,7 +64,7 @@ export function isUrl(text: string): boolean {
  * Check if a pathname is active
  * @example
  * ```ts
- * import { isActivePathname } from "@docimin/lib"
+ * import { isActivePathname } from "@docimin/utils"
  *
  * const isActive = isActivePathname("/dashboard", "/dashboard/stats")
  * ```
@@ -96,7 +96,7 @@ export function isActivePathname(
  * Format a file size
  * @example
  * ```ts
- * import { formatFileSize } from "@docimin/lib"
+ * import { formatFileSize } from "@docimin/utils"
  *
  * const fileSize = formatFileSize(1024)
  * ```
@@ -117,7 +117,7 @@ export function formatFileSize(bytes: number, decimals: number = 2): string {
  * Format a file type
  * @example
  * ```ts
- * import { formatFileType } from "@docimin/lib"
+ * import { formatFileType } from "@docimin/utils"
  *
  * const fileType = formatFileType("image/png")
  * ```
@@ -130,7 +130,7 @@ export function formatFileType(type: string): string {
  * Convert a rating to a percentage
  * @example
  * ```ts
- * import { ratingToPercentage } from "@docimin/lib"
+ * import { ratingToPercentage } from "@docimin/utils"
  *
  * const percentage = ratingToPercentage(4, 5)
  * ```
@@ -150,7 +150,7 @@ export function ratingToPercentage(
  * Format a currency
  * @example
  * ```ts
- * import { formatCurrency } from "@docimin/lib"
+ * import { formatCurrency } from "@docimin/utils"
  *
  * const currency = formatCurrency(1000)
  * ```
@@ -171,7 +171,7 @@ export function formatCurrency(
  * Format a percentage
  * @example
  * ```ts
- * import { formatPercent } from "@docimin/lib"
+ * import { formatPercent } from "@docimin/utils"
  *
  * const percentage = formatPercent(100)
  * ```
@@ -190,7 +190,7 @@ export function formatPercent(
  * Format a date
  * @example
  * ```ts
- * import { formatDate } from "@docimin/lib"
+ * import { formatDate } from "@docimin/utils"
  *
  * const date = formatDate("2021-01-01")
  * ```
@@ -203,7 +203,7 @@ export function formatDate(value: string | number | Date): string {
  * Format a relative date
  * @example
  * ```ts
- * import { formatRelativeDate } from "@docimin/lib"
+ * import { formatRelativeDate } from "@docimin/utils"
  *
  * const relativeDate = formatRelativeDate("2021-01-01")
  * ```
@@ -226,7 +226,7 @@ export function formatRelativeDate(value?: string | number | Date): string {
  * Format a date with time
  * @example
  * ```ts
- * import { formatDateWithTime } from "@docimin/lib"
+ * import { formatDateWithTime } from "@docimin/utils"
  *
  * const dateWithTime = formatDateWithTime("2021-01-01")
  * ```
@@ -239,7 +239,7 @@ export function formatDateWithTime(value: string | number | Date): string {
  * Format a date short
  * @example
  * ```ts
- * import { formatDateShort } from "@docimin/lib"
+ * import { formatDateShort } from "@docimin/utils"
  *
  * const dateShort = formatDateShort("2021-01-01")
  * ```
@@ -252,7 +252,7 @@ export function formatDateShort(value: string | number | Date): string {
  * Format a time
  * @example
  * ```ts
- * import { formatTime } from "@docimin/lib"
+ * import { formatTime } from "@docimin/utils"
  *
  * const time = formatTime("2021-01-01")
  * ```
@@ -265,7 +265,7 @@ export function formatTime(value: string | number | Date): string {
  * Format a duration
  * @example
  * ```ts
- * import { formatDuration } from "@docimin/lib"
+ * import { formatDuration } from "@docimin/utils"
  *
  * const duration = formatDuration("2021-01-01")
  * ```
@@ -290,7 +290,7 @@ export function formatDuration(value: string | number | Date): string {
  * Format a distance
  * @example
  * ```ts
- * import { formatDistance } from "@docimin/lib"
+ * import { formatDistance } from "@docimin/utils"
  *
  * const distance = formatDistance("2021-01-01")
  * ```
@@ -328,7 +328,7 @@ export function formatDistance(value: string | number | Date): string {
  * Format a number to compact
  * @example
  * ```ts
- * import { formatNumberToCompact } from "@docimin/lib"
+ * import { formatNumberToCompact } from "@docimin/utils"
  *
  * const compact = formatNumberToCompact(1000)
  * ```
@@ -347,7 +347,7 @@ export function formatNumberToCompact(
  * Convert a time string to a date
  * @example
  * ```ts
- * import { timeToDate } from "@docimin/lib"
+ * import { timeToDate } from "@docimin/utils"
  *
  * const date = timeToDate("12:00")
  * ```
@@ -369,7 +369,7 @@ export function timeToDate(timeString: string, baseDate = new Date()): Date {
  * Convert a camel case string to a title case string
  * @example
  * ```ts
- * import { camelCaseToTitleCase } from "@docimin/lib"
+ * import { camelCaseToTitleCase } from "@docimin/utils"
  *
  * const titleCase = camelCaseToTitleCase("camelCase")
  * ```
@@ -386,7 +386,7 @@ export function camelCaseToTitleCase(camelCaseStr: string): string {
  * Convert a title case string to a camel case string
  * @example
  * ```ts
- * import { titleCaseToCamelCase } from "@docimin/lib"
+ * import { titleCaseToCamelCase } from "@docimin/utils"
  *
  * const camelCase = titleCaseToCamelCase("Title Case")
  * ```
@@ -403,7 +403,7 @@ export function titleCaseToCamelCase(titleCaseStr: string): string {
  * Convert a text to a slug
  * @example
  * ```ts
- * import { slugify } from "@docimin/lib"
+ * import { slugify } from "@docimin/utils"
  *
  * const slug = slugify("Hello World")
  * ```
@@ -419,7 +419,7 @@ export function slugify(text: string): string {
  * Ensure a string starts with a prefix
  * @example
  * ```ts
- * import { ensureWithPrefix } from "@docimin/lib"
+ * import { ensureWithPrefix } from "@docimin/utils"
  *
  * const prefixed = ensureWithPrefix("Hello", "Hello")
  * ```
@@ -432,7 +432,7 @@ export function ensureWithPrefix(value: string, prefix: string): string {
  * Ensure a string ends with a suffix
  * @example
  * ```ts
- * import { ensureWithSuffix } from "@docimin/lib"
+ * import { ensureWithSuffix } from "@docimin/utils"
  *
  * const suffixed = ensureWithSuffix("Hello", "Hello")
  * ```
@@ -445,7 +445,7 @@ export function ensureWithSuffix(value: string, suffix: string): string {
  * Ensure a string does not end with a suffix
  * @example
  * ```ts
- * import { ensureWithoutSuffix } from "@docimin/lib"
+ * import { ensureWithoutSuffix } from "@docimin/utils"
  *
  * const withoutSuffix = ensureWithoutSuffix("Hello", "Hello")
  * ```
@@ -458,7 +458,7 @@ export function ensureWithoutSuffix(value: string, suffix: string): string {
  * Ensure a string does not start with a prefix
  * @example
  * ```ts
- * import { ensureWithoutPrefix } from "@docimin/lib"
+ * import { ensureWithoutPrefix } from "@docimin/utils"
  *
  * const withoutPrefix = ensureWithoutPrefix("Hello", "Hello")
  * ```
@@ -471,7 +471,7 @@ export function ensureWithoutPrefix(value: string, prefix: string): string {
  * Ensure a redirect pathname
  * @example
  * ```ts
- * import { ensureRedirectPathname } from "@docimin/lib"
+ * import { ensureRedirectPathname } from "@docimin/utils"
  *
  * const redirectPathname = ensureRedirectPathname("/dashboard", "/dashboard/stats")
  * ```
@@ -491,7 +491,7 @@ export function ensureRedirectPathname(
  * Check if a number is non-negative
  * @example
  * ```ts
- * import { isNonNegative } from "@docimin/lib"
+ * import { isNonNegative } from "@docimin/utils"
  *
  * const isNonNegative = isNonNegative(100)
  * ```
@@ -504,7 +504,7 @@ export function isNonNegative(num: number): boolean {
  * Get a discounted price
  * @example
  * ```ts
- * import { getDiscountedPrice } from "@docimin/lib"
+ * import { getDiscountedPrice } from "@docimin/utils"
  *
  * const discountedPrice = getDiscountedPrice(100, 0.1)
  * ```
@@ -533,7 +533,7 @@ export function getDiscountedPrice(
  * Check if a date is before today
  * @example
  * ```ts
- * import { isBeforeToday } from "@docimin/lib"
+ * import { isBeforeToday } from "@docimin/utils"
  *
  * const isBeforeToday = isBeforeToday(new Date())
  * ```
@@ -550,7 +550,7 @@ export function isBeforeToday(date: Date): boolean {
  * Format an unread count
  * @example
  * ```ts
- * import { formatUnreadCount } from "@docimin/lib"
+ * import { formatUnreadCount } from "@docimin/utils"
  *
  * const unreadCount = formatUnreadCount(100)
  * ```
@@ -564,7 +564,7 @@ export function formatUnreadCount(unreadCount: number): number | string {
  * Wait for a number of milliseconds
  * @example
  * ```ts
- * import { wait } from "@docimin/lib"
+ * import { wait } from "@docimin/utils"
  *
  * const result = await wait(1000)
  * ```
@@ -577,7 +577,7 @@ export function wait(ms: number = 250): Promise<void> {
  * Format an overview card value
  * @example
  * ```ts
- * import { formatOverviewCardValue } from "@docimin/lib"
+ * import { formatOverviewCardValue } from "@docimin/utils"
  *
  * const value = formatOverviewCardValue(100, "percent")
  * ```

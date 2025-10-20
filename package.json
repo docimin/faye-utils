@@ -60,7 +60,7 @@
     "license": "MIT",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
-    "name": "@docimin/faye-utils",
+    "name": "@docimin/utils",
     "peerDependencies": {
         "react": "^19.2.0",
         "react-dom": "^19.2.0"
@@ -74,5 +74,5 @@
     },
     "type": "module",
     "types": "./dist/index.d.ts",
-    "version": "0.1.2"
+    "version": "0.1.3"
 }

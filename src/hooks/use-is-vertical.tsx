@@ -6,7 +6,7 @@ import { useSettings } from "./use-settings"
  * Hook to check if the layout is vertical
  * @example
  * ```ts
- * import { useIsVertical } from "@docimin/hooks"
+ * import { useIsVertical } from "@docimin/utils"
  *
  * const isVertical = useIsVertical()
  * ```

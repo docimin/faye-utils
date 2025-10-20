@@ -8,7 +8,7 @@ const MOBILE_BREAKPOINT = 1280
  * Hook to check if the screen is mobile
  * @example
  * ```ts
- * import { useIsMobile } from "@docimin/hooks"
+ * import { useIsMobile } from "@docimin/utils"
  *
  * const isMobile = useIsMobile()
  * ```

@@ -27,7 +27,7 @@ export const SettingsContext = createContext<
  * Context for the settings
  * @example
  * ```ts
- * import { SettingsProvider } from "@docimin/contexts"
+ * import { SettingsProvider } from "@docimin/utils"
  *
  * function SettingsProvider({ children }: { children: ReactNode }) {
  *   const { settings, updateSettings, resetSettings } = useContext(SettingsContext)
