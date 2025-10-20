@@ -599,3 +599,14 @@ export function formatOverviewCardValue(
       })
   }
 }
+
+export function getInitials(fullName: string) {
+  if (fullName.length === 0) return ""
+
+  // Split the name by spaces
+  const names = fullName.split(" ")
+  // Extract the first letter of each name and convert it to uppercase
+  const initials = names.map((name) => name.charAt(0).toUpperCase()).join("")
+
+  return initials
+}
