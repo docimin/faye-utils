@@ -70,7 +70,7 @@
         "build:watch": "bun build --no-compress --format esm --format cjs --external react --watch --entrypoint src/index.ts --outdir dist --watch",
         "lint": "eslint . --ext .ts,.tsx",
         "type-check": "tsc --noEmit",
-        "publish": "bun publish --access public "
+        "publish": "bun publish --access public"
     },
     "type": "module",
     "types": "./dist/index.d.ts",
