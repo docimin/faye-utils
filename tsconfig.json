@@ -5,20 +5,23 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    // Output configuration
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "storybook-static"]
+  "exclude": ["node_modules", "dist"]
 }
