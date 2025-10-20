@@ -48,6 +48,29 @@ export function remToPx(rem: number): number {
 }
 
 /**
+ * Get the brand name of a credit card
+ * @example
+ * ```ts
+ * import { getCreditCardBrandName } from "@docimin/utils"
+ *
+ * const brandName = getCreditCardBrandName("4111111111111111")
+ * ```
+ */
+export function getCreditCardBrandName(number: string) {
+  const re = {
+    visa: /^4/,
+    mastercard: /^5[1-5]/,
+    amex: /^3[47]/,
+    discover: /^6(?:011|5)/,
+  }
+
+  for (const [type, regex] of Object.entries(re)) {
+    if (regex.test(number)) return type
+  }
+  return "unknown"
+}
+
+/**
  * Check if a string is a URL
  * @example
  * ```ts
