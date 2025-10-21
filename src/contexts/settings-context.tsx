@@ -8,7 +8,7 @@ import type { LocaleType, SettingsType } from "../types"
 
 export const defaultSettings: SettingsType = {
   theme: "zinc",
-  mode: "system",
+  darkMode: "system",
   radius: 0.5,
   layout: "vertical",
   locale: "en",

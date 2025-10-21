@@ -38,7 +38,7 @@ export { useDebounce } from "./hooks/useDebounce"
 export { useIsMobile } from "./hooks/use-mobile"
 export { useIsRtl } from "./hooks/use-is-rtl"
 export { useIsVertical } from "./hooks/use-is-vertical"
-export { useIsDarkMode } from "./hooks/use-mode"
+export { useIsDarkMode } from "./hooks/use-is-darkmode"
 export { useRadius } from "./hooks/use-radius"
 export { useSettings } from "./hooks/use-settings"
 
@@ -46,7 +46,7 @@ export { useSettings } from "./hooks/use-settings"
 // Providers
 // ============================================================================
 export { DirectionProvider } from "./providers/direction-provider"
-export { ModeProvider } from "./providers/mode-provider"
+export { DarkModeProvider } from "./providers/dark-mode-provider"
 export { ThemeProvider } from "./providers/theme-provider"
 
 // ============================================================================
@@ -64,7 +64,7 @@ export { themes, radii } from "./configs/themes"
 // ============================================================================
 export type {
   LayoutType,
-  ModeType,
+  DarkModeType,
   OrientationType,
   DirectionType,
   LocaleType,

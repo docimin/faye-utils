@@ -17,11 +17,11 @@ export function useIsDarkMode(): boolean {
   const { settings } = useSettings()
   const isDarkModePreferred = useMedia("(prefers-color-scheme: dark)")
 
-  let resolvedMode = settings.mode
+  let resolvedDarkMode = settings.darkMode
 
-  if (resolvedMode === "system") {
-    resolvedMode = isDarkModePreferred ? "dark" : "light"
+  if (resolvedDarkMode === "system") {
+    resolvedDarkMode = isDarkModePreferred ? "dark" : "light"
   }
 
-  return resolvedMode === "dark"
+  return resolvedDarkMode === "dark"
 }

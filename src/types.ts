@@ -1,9 +1,10 @@
-import { radii, themes } from "./configs/themes";
 import type { icons } from "lucide-react"
+
+import { radii, themes } from "./configs/themes"
 
 export type LayoutType = "vertical" | "horizontal"
 
-export type ModeType = "light" | "dark" | "system"
+export type DarkModeType = "light" | "dark" | "system"
 
 export type OrientationType = "vertical" | "horizontal"
 
@@ -20,9 +21,9 @@ export type RadiusType = (typeof radii)[number]
 export type DynamicIconNameType = keyof typeof icons
 
 export type SettingsType = {
-  theme: ThemeType;
-  mode: ModeType;
-  radius: RadiusType;
-  layout: LayoutType;
-  locale: LocaleType;
-};
+  theme: ThemeType
+  darkMode: DarkModeType
+  radius: RadiusType
+  layout: LayoutType
+  locale: LocaleType
+}
