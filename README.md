@@ -13,6 +13,12 @@ A modern TypeScript component library built with React, TypeScript, and Tailwind
 
 ## Installation
 
+Create if not exists the `.npmcrc` file in your root folder of your project and add the following:
+
+```bash
+@docimin:registry=https://npm.pkg.github.com
+```
+
 ```bash
 bun install @docimin/utils
 ```
