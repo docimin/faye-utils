@@ -19,6 +19,8 @@ Create if not exists the `.npmcrc` file in your root folder of your project and 
 @docimin:registry=https://npm.pkg.github.com
 ```
 
+Now install it:
+
 ```bash
 bun install @docimin/utils
 ```
