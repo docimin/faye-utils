@@ -27,3 +27,11 @@ export type SettingsType = {
   layout: LayoutType
   locale: LocaleType
 }
+
+export type SettingsConfig = {
+  theme?: boolean
+  darkMode?: boolean
+  radius?: boolean
+  layout?: boolean
+  locale?: boolean
+}

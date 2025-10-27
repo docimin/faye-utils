@@ -4,7 +4,7 @@ import { createContext, useCallback, useEffect, useState } from "react"
 import { useCookie } from "react-use"
 
 import type { ReactNode } from "react"
-import type { LocaleType, SettingsType } from "../types"
+import type { LocaleType, SettingsConfig, SettingsType } from "../types"
 
 export const defaultSettings: SettingsType = {
   theme: "zinc",
@@ -19,6 +19,7 @@ export const SettingsContext = createContext<
       settings: SettingsType
       updateSettings: (newSettings: SettingsType) => void
       resetSettings: () => void
+      settingsConfig: SettingsConfig
     }
   | undefined
 >(undefined)
@@ -29,22 +30,37 @@ export const SettingsContext = createContext<
  * ```ts
  * import { SettingsProvider } from "@docimin/utils"
  *
- * function SettingsProvider({ children }: { children: ReactNode }) {
- *   const { settings, updateSettings, resetSettings } = useContext(SettingsContext)
- *
+ * function App() {
  *   return (
  *     <SettingsProvider locale="en">
- *       {children}
+ *       <YourApp />
  *     </SettingsProvider>
  *   )
  * }
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Disable theme selection
+ * <SettingsProvider locale="en" settingsConfig={{ theme: false }}>
+ *   <App />
+ * </SettingsProvider>
+ * ```
  */
 export function SettingsProvider({
   locale,
   children,
+  settingsConfig = {
+    theme: true,
+    darkMode: true,
+    radius: true,
+    layout: true,
+    locale: true,
+  },
 }: {
   locale: LocaleType
   children: ReactNode
+  settingsConfig?: SettingsConfig
 }) {
   const [storedSettings, setStoredSettings, deleteStoredSettings] =
     useCookie("settings")
@@ -52,7 +68,8 @@ export function SettingsProvider({
 
   useEffect(() => {
     if (storedSettings) {
-      setSettings(JSON.parse(storedSettings))
+      const parsedSettings = JSON.parse(storedSettings)
+      setSettings({ ...defaultSettings, locale, ...parsedSettings })
     } else {
       setSettings({ ...defaultSettings, locale })
     }
@@ -60,16 +77,18 @@ export function SettingsProvider({
 
   const updateSettings = useCallback(
     (newSettings: SettingsType) => {
-      setStoredSettings(JSON.stringify(newSettings))
+      // Filter and only store enabled settings
+      const filteredSettings = filterSettings(newSettings, settingsConfig)
+      setStoredSettings(JSON.stringify(filteredSettings))
       setSettings(newSettings)
     },
-    [setStoredSettings]
+    [setStoredSettings, settingsConfig]
   )
 
   const resetSettings = useCallback(() => {
     deleteStoredSettings()
-    setSettings(defaultSettings)
-  }, [deleteStoredSettings])
+    setSettings({ ...defaultSettings, locale })
+  }, [deleteStoredSettings, locale])
 
   // Render children only when settings are ready
   if (!settings) {
@@ -78,9 +97,38 @@ export function SettingsProvider({
 
   return (
     <SettingsContext.Provider
-      value={{ settings, updateSettings, resetSettings }}
+      value={{ settings, updateSettings, resetSettings, settingsConfig }}
     >
       {children}
     </SettingsContext.Provider>
   )
+}
+
+/**
+ * Filters settings based on the configuration
+ * Only includes settings that are enabled in the config
+ */
+function filterSettings(
+  settings: SettingsType,
+  config: SettingsConfig
+): Partial<SettingsType> {
+  const filtered: Partial<SettingsType> = {}
+
+  if (config.theme !== false) {
+    filtered.theme = settings.theme
+  }
+  if (config.darkMode !== false) {
+    filtered.darkMode = settings.darkMode
+  }
+  if (config.radius !== false) {
+    filtered.radius = settings.radius
+  }
+  if (config.layout !== false) {
+    filtered.layout = settings.layout
+  }
+  if (config.locale !== false) {
+    filtered.locale = settings.locale
+  }
+
+  return filtered
 }

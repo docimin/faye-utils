@@ -1,78 +1,78 @@
 {
-    "author": "Faye",
-    "dependencies": {
-        "class-variance-authority": "^0.7.1",
-        "date-fns": "^4.1.0",
-        "react-use": "^17.6.0",
-        "tailwind-merge": "^3.3.1"
-    },
-    "description": "Utility library",
-    "devDependencies": {
-        "@ianvs/prettier-plugin-sort-imports": "4.6.2",
-        "@radix-ui/react-direction": "^1.1.1",
-        "@radix-ui/react-toast": "^1.2.15",
-        "@types/react": "^19.2.2",
-        "@types/react-dom": "^19.2.2",
-        "@typescript-eslint/eslint-plugin": "^8.46.1",
-        "@typescript-eslint/parser": "^8.46.1",
-        "autoprefixer": "^10.4.21",
-        "eslint": "^9.38.0",
-        "eslint-config-prettier": "10.1.8",
-        "eslint-plugin-prettier": "5.5.4",
-        "eslint-plugin-react": "^7.37.5",
-        "eslint-plugin-react-hooks": "^7.0.0",
-        "lucide-react": "^0.546.0",
-        "postcss": "^8.5.6",
-        "prettier": "^3.6.2",
-        "prettier-plugin-tailwindcss": "0.6.14",
-        "react": "^19.2.0",
-        "react-dom": "^19.2.0",
-        "tailwindcss": "^4.1.14",
-        "typescript": "^5.9.3"
-    },
-    "exports": {
-        ".": {
-            "default": "./dist/index.js",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "keywords": [
-        "react",
-        "components",
-        "typescript",
-        "ui"
-    ],
-    "license": "MIT",
-    "module": "./dist/index.js",
-    "name": "@docimin/utils",
-    "packageManager": "bun@1.3.0",
-    "peerDependencies": {
-        "@radix-ui/react-direction": "^1.1.0",
-        "@radix-ui/react-toast": "^1.2.0",
-        "react": "^19.2.0",
-        "react-dom": "^19.2.0"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/docimin/faye-utils.git"
-    },
-    "scripts": {
-        "build": "bun run clean && tsc -p tsconfig.build.json",
-        "build:watch": "tsc -p tsconfig.build.json --watch",
-        "clean": "node -e \"require('fs').rmSync('dist', {recursive:true, force:true})\"",
-        "lint": "eslint . --ext .ts,.tsx",
-        "prepublishOnly": "bun run build",
-        "type-check": "tsc --noEmit"
-    },
-    "sideEffects": false,
-    "type": "module",
-    "types": "./dist/index.d.ts",
-    "version": "0.2.0"
+  "author": "Faye",
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "date-fns": "^4.1.0",
+    "react-use": "^17.6.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "description": "Utility library",
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "4.6.2",
+    "@radix-ui/react-direction": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.15",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "lucide-react": "^0.546.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "0.6.14",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "components",
+    "typescript",
+    "ui"
+  ],
+  "license": "MIT",
+  "module": "./dist/index.js",
+  "name": "@docimin/utils",
+  "packageManager": "bun@1.3.0",
+  "peerDependencies": {
+    "@radix-ui/react-direction": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/docimin/faye-utils.git"
+  },
+  "scripts": {
+    "build": "bun run clean && tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json --watch",
+    "clean": "node -e \"require('fs').rmSync('dist', {recursive:true, force:true})\"",
+    "lint": "eslint . --ext .ts,.tsx",
+    "prepublishOnly": "bun run build",
+    "type-check": "tsc --noEmit"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "version": "0.3.0"
 }

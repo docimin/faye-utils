@@ -73,4 +73,5 @@ export type {
   RadiusType,
   DynamicIconNameType,
   SettingsType,
+  SettingsConfig,
 } from "./types"
