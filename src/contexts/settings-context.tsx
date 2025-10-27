@@ -33,7 +33,7 @@ export const SettingsContext = createContext<
  * function App() {
  *   return (
  *     <SettingsProvider locale="en">
- *       <YourApp />
+ *       <App />
  *     </SettingsProvider>
  *   )
  * }
