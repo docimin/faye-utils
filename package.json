@@ -4,7 +4,7 @@
     "class-variance-authority": "^0.7.1",
     "date-fns": "^4.1.0",
     "react-use": "^17.6.0",
-    "zod": ">=4.1.12"
+    "zod": ">=4.1"
   },
   "description": "Utility library",
   "devDependencies": {

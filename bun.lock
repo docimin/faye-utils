@@ -7,7 +7,7 @@
         "class-variance-authority": "^0.7.1",
         "date-fns": "^4.1.0",
         "react-use": "^17.6.0",
-        "tailwind-merge": "^3.3.1",
+        "zod": ">=4.1",
       },
       "devDependencies": {
         "@biomejs/biome": "^2.3.1",
@@ -23,6 +23,7 @@
         "prettier-plugin-tailwindcss": "0.6.14",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
+        "tailwind-merge": "^3.3.1",
         "tailwindcss": "^4.1.16",
         "typescript": "^5.9.3",
       },
@@ -31,6 +32,7 @@
         "@radix-ui/react-toast": "^1.2.0",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
+        "zod": "^3.0.0",
       },
     },
   },
@@ -246,6 +248,8 @@
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 
     "update-browserslist-db": ["update-browserslist-db@1.1.4", "", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-q0SPT4xyU84saUX+tomz1WLkxUbuaJnR1xWt17M7fJtEJigJeWUNGUqrauFXsHnqev9y9JTRGwk13tFBuKby4A=="],
+
+    "zod": ["zod@4.1.12", "", {}, "sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ=="],
 
     "stacktrace-gps/source-map": ["source-map@0.5.6", "", {}, "sha512-MjZkVp0NHr5+TPihLcadqnlVoGIoWo4IBHptutGh9wI3ttUYvCG26HkSuDi+K6lsZ25syXJXcctwgyVCt//xqA=="],
   }
