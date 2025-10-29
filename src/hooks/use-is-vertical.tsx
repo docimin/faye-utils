@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { useSettings } from "./use-settings"
+import { useSettings } from './use-settings'
 
 /**
  * Hook to check if the layout is vertical
@@ -14,6 +14,6 @@ import { useSettings } from "./use-settings"
 export function useIsVertical(): boolean {
   const { settings } = useSettings()
 
-  const isVertical = settings.layout === "vertical"
+  const isVertical = settings.layout === 'vertical'
   return isVertical
 }

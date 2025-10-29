@@ -1,4 +1,4 @@
-export type RouteType = "guest" | "protected" | "public"
+export type RouteType = 'guest' | 'protected' | 'public'
 export type RouteConfig = Map<string, { type: RouteType }>
 
 /**
@@ -13,8 +13,6 @@ export type RouteConfig = Map<string, { type: RouteType }>
  * ])
  * ```
  */
-export function createRouteConfig(
-  routes: [string, { type: RouteType }][]
-): RouteConfig {
+export function createRouteConfig(routes: [string, { type: RouteType }][]): RouteConfig {
   return new Map(routes)
 }

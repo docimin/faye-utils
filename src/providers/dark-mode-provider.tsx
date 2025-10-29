@@ -1,12 +1,11 @@
-"use client"
+'use client'
 
-import { useEffect } from "react"
+import type { ReactNode } from 'react'
+import { useEffect } from 'react'
 
-import type { ReactNode } from "react"
+import { useIsDarkMode } from '../hooks/use-is-darkmode'
 
-import { useIsDarkMode } from "../hooks/use-is-darkmode"
-
-const defaultModes = ["light", "dark"]
+const defaultModes = ['light', 'dark']
 
 /**
  * Provider for the mode
@@ -21,7 +20,7 @@ const defaultModes = ["light", "dark"]
  */
 export function DarkModeProvider({ children }: { children: ReactNode }) {
   const isDarkMode = useIsDarkMode()
-  const mode = isDarkMode ? "dark" : "light"
+  const mode = isDarkMode ? 'dark' : 'light'
 
   useEffect(() => {
     const rootElement = document.documentElement

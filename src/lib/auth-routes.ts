@@ -1,4 +1,4 @@
-import type { RouteConfig, RouteType } from "../configs/auth-routes"
+import type { RouteConfig, RouteType } from '../configs/auth-routes'
 
 /**
  * Strip the locale from the route
@@ -12,7 +12,7 @@ import type { RouteConfig, RouteType } from "../configs/auth-routes"
 const stripLocale = (route: string): string => {
   // Remove locale prefix (e.g., "/en/dashboard" -> "/dashboard")
   // Matches patterns like /en, /de, /fr, etc. (2-letter locale codes)
-  return route.replace(/^\/[a-z]{2}(\/|$)/, "/")
+  return route.replace(/^\/[a-z]{2}(\/|$)/, '/')
 }
 
 /**
@@ -28,10 +28,8 @@ const getBasePath = (route: string): string => {
   // Strip locale first, then extract the base path
   const routeWithoutLocale = stripLocale(route)
   // Extract the base path (e.g., "/user" from "/user/settings")
-  const secondSlash = routeWithoutLocale.indexOf("/", 1)
-  return secondSlash === -1
-    ? routeWithoutLocale
-    : routeWithoutLocale.substring(0, secondSlash)
+  const secondSlash = routeWithoutLocale.indexOf('/', 1)
+  return secondSlash === -1 ? routeWithoutLocale : routeWithoutLocale.substring(0, secondSlash)
 }
 
 /**
@@ -43,11 +41,7 @@ const getBasePath = (route: string): string => {
  * const isPublicRoute = isRouteType("/user", "public", routeConfig)
  * ```
  */
-function isRouteType(
-  route: string,
-  type: RouteType,
-  routeConfig: RouteConfig
-): boolean {
+function isRouteType(route: string, type: RouteType, routeConfig: RouteConfig): boolean {
   const basePath = getBasePath(route)
   const routeInfo = routeConfig.get(basePath)
 
@@ -69,11 +63,8 @@ function isRouteType(
  * const isPublicRoute = isPublicRoute("/user", routeConfig)
  * ```
  */
-export function isPublicRoute(
-  route: string,
-  routeConfig: RouteConfig
-): boolean {
-  return isRouteType(route, "public", routeConfig)
+export function isPublicRoute(route: string, routeConfig: RouteConfig): boolean {
+  return isRouteType(route, 'public', routeConfig)
 }
 
 /**
@@ -86,7 +77,7 @@ export function isPublicRoute(
  * ```
  */
 export function isGuestRoute(route: string, routeConfig: RouteConfig): boolean {
-  return isRouteType(route, "guest", routeConfig)
+  return isRouteType(route, 'guest', routeConfig)
 }
 
 /**
@@ -98,9 +89,6 @@ export function isGuestRoute(route: string, routeConfig: RouteConfig): boolean {
  * const isProtectedRoute = isProtectedRoute("/user", routeConfig)
  * ```
  */
-export function isProtectedRoute(
-  route: string,
-  routeConfig: RouteConfig
-): boolean {
-  return isRouteType(route, "protected", routeConfig)
+export function isProtectedRoute(route: string, routeConfig: RouteConfig): boolean {
+  return isRouteType(route, 'protected', routeConfig)
 }

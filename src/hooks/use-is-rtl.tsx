@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { useDirection } from "@radix-ui/react-direction"
+import { useDirection } from '@radix-ui/react-direction'
 
 /**
  * Hook to check if the direction is RTL
@@ -14,6 +14,6 @@ import { useDirection } from "@radix-ui/react-direction"
 export function useIsRtl(): boolean {
   const direction = useDirection()
 
-  const isRtl = direction === "rtl"
+  const isRtl = direction === 'rtl'
   return isRtl
 }

@@ -1,10 +1,9 @@
-"use client"
+'use client'
 
-import { useEffect } from "react"
+import type { ReactNode } from 'react'
+import { useEffect } from 'react'
 
-import type { ReactNode } from "react"
-
-import { useSettings } from "../hooks/use-settings"
+import { useSettings } from '../hooks/use-settings'
 
 /**
  * Provider for the theme
@@ -25,10 +24,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     // Update class names in the <body> tag
     Array.from(bodyElement.classList)
-      .filter(
-        (className) =>
-          className.startsWith("theme-") || className.startsWith("radius-")
-      )
+      .filter((className) => className.startsWith('theme-') || className.startsWith('radius-'))
       .forEach((className) => {
         bodyElement.classList.remove(className)
       })

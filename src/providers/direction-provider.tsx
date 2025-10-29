@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { DirectionProvider as DirectionProviderPrimitive } from "@radix-ui/react-direction"
+import { DirectionProvider as DirectionProviderPrimitive } from '@radix-ui/react-direction'
 
-import type { ReactNode } from "react"
-import type { DirectionType } from "../types"
+import type { ReactNode } from 'react'
+import type { DirectionType } from '../types'
 
 /**
  * Provider for the direction
@@ -23,9 +23,5 @@ export function DirectionProvider({
   direction: DirectionType
   children: ReactNode
 }) {
-  return (
-    <DirectionProviderPrimitive dir={direction}>
-      {children}
-    </DirectionProviderPrimitive>
-  )
+  return <DirectionProviderPrimitive dir={direction}>{children}</DirectionProviderPrimitive>
 }

@@ -4,8 +4,6 @@ tsconfig.json
 tsup.config.ts
 
 # Config files
-.eslintrc*
-.prettierrc*
 tailwind.config.js
 postcss.config.js
 

@@ -1,17 +1,16 @@
-"use client"
+'use client'
 
-import { createContext, useCallback, useEffect, useState } from "react"
-import { useCookie } from "react-use"
-
-import type { ReactNode } from "react"
-import type { LocaleType, SettingsConfig, SettingsType } from "../types"
+import type { ReactNode } from 'react'
+import { createContext, useCallback, useEffect, useState } from 'react'
+import { useCookie } from 'react-use'
+import type { LocaleType, SettingsConfig, SettingsType } from '../types'
 
 export const defaultSettings: SettingsType = {
-  theme: "zinc",
-  darkMode: "system",
+  theme: 'zinc',
+  darkMode: 'system',
   radius: 0.5,
-  layout: "vertical",
-  locale: "en",
+  layout: 'vertical',
+  locale: 'en',
 }
 
 export const SettingsContext = createContext<
@@ -62,8 +61,7 @@ export function SettingsProvider({
   children: ReactNode
   settingsConfig?: SettingsConfig
 }) {
-  const [storedSettings, setStoredSettings, deleteStoredSettings] =
-    useCookie("settings")
+  const [storedSettings, setStoredSettings, deleteStoredSettings] = useCookie('settings')
   const [settings, setSettings] = useState<SettingsType | null>(null)
 
   useEffect(() => {
@@ -82,7 +80,7 @@ export function SettingsProvider({
       setStoredSettings(JSON.stringify(filteredSettings))
       setSettings(newSettings)
     },
-    [setStoredSettings, settingsConfig]
+    [setStoredSettings, settingsConfig],
   )
 
   const resetSettings = useCallback(() => {
@@ -96,9 +94,7 @@ export function SettingsProvider({
   }
 
   return (
-    <SettingsContext.Provider
-      value={{ settings, updateSettings, resetSettings, settingsConfig }}
-    >
+    <SettingsContext.Provider value={{ settings, updateSettings, resetSettings, settingsConfig }}>
       {children}
     </SettingsContext.Provider>
   )
@@ -108,10 +104,7 @@ export function SettingsProvider({
  * Filters settings based on the configuration
  * Only includes settings that are enabled in the config
  */
-function filterSettings(
-  settings: SettingsType,
-  config: SettingsConfig
-): Partial<SettingsType> {
+function filterSettings(settings: SettingsType, config: SettingsConfig): Partial<SettingsType> {
   const filtered: Partial<SettingsType> = {}
 
   if (config.theme !== false) {

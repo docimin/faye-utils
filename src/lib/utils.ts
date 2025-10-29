@@ -1,10 +1,9 @@
-import { clsx } from "clsx"
-import { format, formatDistanceToNow, intervalToDuration } from "date-fns"
-import { twMerge } from "tailwind-merge"
-import { z } from "zod"
-
-import type { ClassValue } from "clsx"
-import type { FormatStyleType, LocaleType } from "../types"
+import type { ClassValue } from 'clsx'
+import { clsx } from 'clsx'
+import { format, formatDistanceToNow, intervalToDuration } from 'date-fns'
+import { twMerge } from 'tailwind-merge'
+import { z } from 'zod'
+import type { FormatStyleType, LocaleType } from '../types'
 
 /**
  * Merge class names
@@ -41,9 +40,7 @@ export const isEven = (num: number) => num % 2 === 0
  */
 export function remToPx(rem: number): number {
   // Get the root font size (default is 16px if not set otherwise)
-  const rootFontSize = parseFloat(
-    getComputedStyle(document.documentElement).fontSize
-  )
+  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize)
   return rem * rootFontSize
 }
 
@@ -67,7 +64,7 @@ export function getCreditCardBrandName(number: string) {
   for (const [type, regex] of Object.entries(re)) {
     if (regex.test(number)) return type
   }
-  return "unknown"
+  return 'unknown'
 }
 
 /**
@@ -95,10 +92,10 @@ export function isUrl(text: string): boolean {
 export function isActivePathname(
   basePathname: string,
   currentPathname: string,
-  exactMatch: boolean = true
+  exactMatch: boolean = true,
 ): boolean {
-  if (typeof basePathname !== "string" || typeof currentPathname !== "string") {
-    throw new Error("Both basePathname and currentPathname must be strings")
+  if (typeof basePathname !== 'string' || typeof currentPathname !== 'string') {
+    throw new Error('Both basePathname and currentPathname must be strings')
   }
 
   // Use this when you want a strict comparison, e.g., highlighting a specific page.
@@ -110,8 +107,7 @@ export function isActivePathname(
   // Example: If basePathname is "/dashboard", it should match "/dashboard/stats".
   return (
     currentPathname.startsWith(basePathname) &&
-    (currentPathname.length === basePathname.length ||
-      currentPathname[basePathname.length] === "/")
+    (currentPathname.length === basePathname.length || currentPathname[basePathname.length] === '/')
   )
 }
 
@@ -125,15 +121,15 @@ export function isActivePathname(
  * ```
  */
 export function formatFileSize(bytes: number, decimals: number = 2): string {
-  if (bytes === 0) return "0 Bytes"
+  if (bytes === 0) return '0 Bytes'
 
   const k = 1000 // Use 1024 for binary
   const dm = decimals < 0 ? 0 : decimals
-  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB"]
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB']
 
   const i = Math.floor(Math.log(bytes) / Math.log(k))
 
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i]
+  return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`
 }
 
 /**
@@ -146,7 +142,7 @@ export function formatFileSize(bytes: number, decimals: number = 2): string {
  * ```
  */
 export function formatFileType(type: string): string {
-  return type.slice(0, type.lastIndexOf("/"))
+  return type.slice(0, type.lastIndexOf('/'))
 }
 
 /**
@@ -161,10 +157,10 @@ export function formatFileType(type: string): string {
 export function ratingToPercentage(
   rating: number,
   maxRating: number,
-  fractionDigits: number = 0
+  fractionDigits: number = 0,
 ): string {
   const value = ((rating / maxRating) * 100).toFixed(fractionDigits)
-  const result = value + "%"
+  const result = `${value}%`
 
   return result
 }
@@ -180,11 +176,11 @@ export function ratingToPercentage(
  */
 export function formatCurrency(
   value: number,
-  locales: LocaleType = "en",
-  currency: string = "USD"
+  locales: LocaleType = 'en',
+  currency: string = 'USD',
 ): string {
   return new Intl.NumberFormat(locales, {
-    style: "currency",
+    style: 'currency',
     currency,
     maximumFractionDigits: 0,
   }).format(value)
@@ -199,12 +195,9 @@ export function formatCurrency(
  * const percentage = formatPercent(100)
  * ```
  */
-export function formatPercent(
-  value: number,
-  locales: LocaleType = "en"
-): string {
+export function formatPercent(value: number, locales: LocaleType = 'en'): string {
   return new Intl.NumberFormat(locales, {
-    style: "percent",
+    style: 'percent',
     maximumFractionDigits: 0,
   }).format(value)
 }
@@ -219,7 +212,7 @@ export function formatPercent(
  * ```
  */
 export function formatDate(value: string | number | Date): string {
-  return format(value, "PP")
+  return format(value, 'PP')
 }
 
 /**
@@ -232,15 +225,15 @@ export function formatDate(value: string | number | Date): string {
  * ```
  */
 export function formatRelativeDate(value?: string | number | Date): string {
-  if (!value) return "No Date"
+  if (!value) return 'No Date'
 
   const date = new Date(value)
   const today = new Date()
   const yesterday = new Date()
   yesterday.setDate(today.getDate() - 1)
 
-  if (date.toDateString() === today.toDateString()) return "Today"
-  if (date.toDateString() === yesterday.toDateString()) return "Yesterday"
+  if (date.toDateString() === today.toDateString()) return 'Today'
+  if (date.toDateString() === yesterday.toDateString()) return 'Yesterday'
 
   return formatDate(value)
 }
@@ -255,7 +248,7 @@ export function formatRelativeDate(value?: string | number | Date): string {
  * ```
  */
 export function formatDateWithTime(value: string | number | Date): string {
-  return format(value, "PP hh:mm a")
+  return format(value, 'PP hh:mm a')
 }
 
 /**
@@ -268,7 +261,7 @@ export function formatDateWithTime(value: string | number | Date): string {
  * ```
  */
 export function formatDateShort(value: string | number | Date): string {
-  return format(value, "MMM dd")
+  return format(value, 'MMM dd')
 }
 
 /**
@@ -281,7 +274,7 @@ export function formatDateShort(value: string | number | Date): string {
  * ```
  */
 export function formatTime(value: string | number | Date): string {
-  return format(value, "h:mm a")
+  return format(value, 'h:mm a')
 }
 
 /**
@@ -300,9 +293,9 @@ export function formatDuration(value: string | number | Date): string {
 
   const duration = intervalToDuration({ start: 0, end: absoluteValue })
 
-  const hours = duration.hours ? `${duration.hours}h` : ""
-  const minutes = duration.minutes ? `${duration.minutes}m` : ""
-  const seconds = duration.seconds ? `${duration.seconds}s` : ""
+  const hours = duration.hours ? `${duration.hours}h` : ''
+  const minutes = duration.minutes ? `${duration.minutes}m` : ''
+  const seconds = duration.seconds ? `${duration.seconds}s` : ''
 
   const formattedDuration = `${hours} ${minutes} ${seconds}`.trim()
 
@@ -322,29 +315,29 @@ export function formatDistance(value: string | number | Date): string {
   const distance = formatDistanceToNow(value, { addSuffix: true })
 
   const replacements: Record<string, string> = {
-    minute: "min",
-    minutes: "mins",
-    hour: "hr",
-    hours: "hrs",
-    day: "day",
-    days: "days",
-    month: "month",
-    months: "months",
-    year: "year",
-    years: "years",
+    minute: 'min',
+    minutes: 'mins',
+    hour: 'hr',
+    hours: 'hrs',
+    day: 'day',
+    days: 'days',
+    month: 'month',
+    months: 'months',
+    year: 'year',
+    years: 'years',
   }
 
-  if (distance === "less than a minute ago") {
-    return "just now"
+  if (distance === 'less than a minute ago') {
+    return 'just now'
   }
 
   // Replace phrases based on the mapping
   return distance
     .replace(
       /less than a minute|minute|minutes|hour|hours|day|days|month|months|year|years/g,
-      (match: string) => replacements[match] ?? match
+      (match: string) => replacements[match] ?? match,
     )
-    .replace(/\b(over|almost|about)\b/g, "")
+    .replace(/\b(over|almost|about)\b/g, '')
 }
 
 /**
@@ -356,13 +349,10 @@ export function formatDistance(value: string | number | Date): string {
  * const compact = formatNumberToCompact(1000)
  * ```
  */
-export function formatNumberToCompact(
-  value: number,
-  locales: LocaleType = "en"
-): string {
+export function formatNumberToCompact(value: number, locales: LocaleType = 'en'): string {
   return new Intl.NumberFormat(locales, {
-    notation: "compact",
-    compactDisplay: "short",
+    notation: 'compact',
+    compactDisplay: 'short',
   }).format(value)
 }
 
@@ -380,7 +370,7 @@ export function timeToDate(timeString: string, baseDate = new Date()): Date {
     throw new Error("Invalid time format. Use 'HH:mm'.")
   }
 
-  const [hours, minutes] = timeString.split(":").map(Number)
+  const [hours, minutes] = timeString.split(':').map(Number)
   const date = new Date(baseDate) // Clone base date
 
   date.setHours(hours, minutes, 0, 0) // Set hours and minutes, reset seconds & milliseconds
@@ -399,7 +389,7 @@ export function timeToDate(timeString: string, baseDate = new Date()): Date {
  */
 export function camelCaseToTitleCase(camelCaseStr: string): string {
   const titleCaseStr = camelCaseStr
-    .replace(/([A-Z])/g, " $1") // Insert space before uppercase letters
+    .replace(/([A-Z])/g, ' $1') // Insert space before uppercase letters
     .replace(/^./, (char) => char.toUpperCase()) // Capitalize the first letter
 
   return titleCaseStr
@@ -434,8 +424,8 @@ export function titleCaseToCamelCase(titleCaseStr: string): string {
 export function slugify(text: string): string {
   return text
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric chars with "-"
-    .replace(/^-+|-+$/g, "") // Remove leading/trailing dashes
+    .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric chars with "-"
+    .replace(/^-+|-+$/g, '') // Remove leading/trailing dashes
 }
 
 /**
@@ -499,15 +489,12 @@ export function ensureWithoutPrefix(value: string, prefix: string): string {
  * const redirectPathname = ensureRedirectPathname("/dashboard", "/dashboard/stats")
  * ```
  */
-export function ensureRedirectPathname(
-  basePathname: string,
-  redirectPathname: string
-): string {
+export function ensureRedirectPathname(basePathname: string, redirectPathname: string): string {
   const searchParams = new URLSearchParams({
-    redirectTo: ensureWithoutSuffix(redirectPathname, "/"),
+    redirectTo: ensureWithoutSuffix(redirectPathname, '/'),
   })
 
-  return ensureWithSuffix(basePathname, "?" + searchParams.toString())
+  return ensureWithSuffix(basePathname, `?${searchParams.toString()}`)
 }
 
 /**
@@ -535,7 +522,7 @@ export function isNonNegative(num: number): boolean {
 export function getDiscountedPrice(
   price: number,
   discountRate: number,
-  isAnnual: boolean = false
+  isAnnual: boolean = false,
 ): number {
   if (isAnnual) {
     // Apply discount to the annual price
@@ -580,7 +567,7 @@ export function isBeforeToday(date: Date): boolean {
  */
 export function formatUnreadCount(unreadCount: number): number | string {
   // If the unread count is 100 or more, display "+99"; otherwise, display the actual unread count.
-  return unreadCount >= 100 ? "+99" : unreadCount
+  return unreadCount >= 100 ? '+99' : unreadCount
 }
 
 /**
@@ -607,29 +594,29 @@ export function wait(ms: number = 250): Promise<void> {
  */
 export function formatOverviewCardValue(
   value: number,
-  formatStyle: FormatStyleType
+  formatStyle: FormatStyleType,
 ): string | number {
   switch (formatStyle) {
-    case "percent":
+    case 'percent':
       return formatPercent(value)
-    case "duration":
+    case 'duration':
       return formatDuration(value)
-    case "currency":
+    case 'currency':
       return formatCurrency(value)
     default:
-      return value.toLocaleString("en", {
+      return value.toLocaleString('en', {
         maximumFractionDigits: 0,
       })
   }
 }
 
 export function getInitials(fullName: string) {
-  if (fullName.length === 0) return ""
+  if (fullName.length === 0) return ''
 
   // Split the name by spaces
-  const names = fullName.split(" ")
+  const names = fullName.split(' ')
   // Extract the first letter of each name and convert it to uppercase
-  const initials = names.map((name) => name.charAt(0).toUpperCase()).join("")
+  const initials = names.map((name) => name.charAt(0).toUpperCase()).join('')
 
   return initials
 }

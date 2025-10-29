@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { useMedia } from "react-use"
+import { useMedia } from 'react-use'
 
-import { useSettings } from "./use-settings"
+import { useSettings } from './use-settings'
 
 /**
  * Hook to check if the mode is dark
@@ -15,13 +15,13 @@ import { useSettings } from "./use-settings"
  */
 export function useIsDarkMode(): boolean {
   const { settings } = useSettings()
-  const isDarkModePreferred = useMedia("(prefers-color-scheme: dark)")
+  const isDarkModePreferred = useMedia('(prefers-color-scheme: dark)')
 
   let resolvedDarkMode = settings.darkMode
 
-  if (resolvedDarkMode === "system") {
-    resolvedDarkMode = isDarkModePreferred ? "dark" : "light"
+  if (resolvedDarkMode === 'system') {
+    resolvedDarkMode = isDarkModePreferred ? 'dark' : 'light'
   }
 
-  return resolvedDarkMode === "dark"
+  return resolvedDarkMode === 'dark'
 }

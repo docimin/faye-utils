@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { remToPx } from "../lib/utils"
+import { remToPx } from '../lib/utils'
 
-import { useSettings } from "./use-settings"
+import { useSettings } from './use-settings'
 
 /**
  * Hook to get the radius
