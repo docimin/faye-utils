@@ -1,7 +1,3 @@
-// ============================================================================
-// Auth Routes
-// ============================================================================
-
 export type { ToastActionElement, ToastProps } from './components/ui/toast'
 // ============================================================================
 // Components
@@ -45,7 +41,43 @@ export {
 // ============================================================================
 // Utilities
 // ============================================================================
-export * from './lib/utils'
+export {
+  camelCaseToTitleCase,
+  cn,
+  ensureRedirectPathname,
+  ensureWithPrefix,
+  ensureWithoutPrefix,
+  ensureWithSuffix,
+  ensureWithoutSuffix,
+  formatCurrency,
+  formatDate,
+  formatDateShort,
+  formatDateWithTime,
+  formatDistance,
+  formatDuration,
+  formatFileSize,
+  formatFileType,
+  formatNumberToCompact,
+  formatOverviewCardValue,
+  formatPercent,
+  formatRelativeDate,
+  formatTime,
+  formatUnreadCount,
+  getCreditCardBrandName,
+  getDiscountedPrice,
+  getInitials,
+  isActivePathname,
+  isBeforeToday,
+  isEven,
+  isNonNegative,
+  isUrl,
+  ratingToPercentage,
+  remToPx,
+  slugify,
+  timeToDate,
+  titleCaseToCamelCase,
+  wait,
+} from './lib/utils'
 export { DarkModeProvider } from './providers/dark-mode-provider'
 // ============================================================================
 // Providers
@@ -68,4 +100,4 @@ export type {
   SettingsType,
   ThemeType,
 } from './types'
-export * from './utils/common'
+export { getCookie } from './utils/common'
