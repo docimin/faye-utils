@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 import { format, formatDistanceToNow, intervalToDuration } from 'date-fns'
 import { twMerge } from 'tailwind-merge'
 import { z } from 'zod'
-import type { FormatStyleType, LocaleType } from '../types'
+import type { FormatStyleType, LocaleType } from '../types.js'
 
 /**
  * Merge class names

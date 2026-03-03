@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react'
 import { createContext, useCallback, useEffect, useState } from 'react'
 import { useCookie } from 'react-use'
-import type { LocaleType, SettingsConfig, SettingsType } from '../types'
+import type { LocaleType, SettingsConfig, SettingsType } from '../types.js'
 
 export const defaultSettings: SettingsType = {
   theme: 'zinc',

@@ -1,6 +1,6 @@
 'use client'
 
-import { useSettings } from './use-settings'
+import { useSettings } from './use-settings.js'
 
 /**
  * Hook to check if the layout is vertical

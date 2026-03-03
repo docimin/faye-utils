@@ -1,8 +1,8 @@
 'use client'
 
-import { remToPx } from '../lib/utils'
+import { remToPx } from '../lib/utils.js'
 
-import { useSettings } from './use-settings'
+import { useSettings } from './use-settings.js'
 
 /**
  * Hook to get the radius

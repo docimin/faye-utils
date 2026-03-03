@@ -1,4 +1,4 @@
-import type { RouteConfig, RouteType } from '../configs/auth-routes'
+import type { RouteConfig, RouteType } from '../configs/auth-routes.js'
 
 /**
  * Strip the locale from the route

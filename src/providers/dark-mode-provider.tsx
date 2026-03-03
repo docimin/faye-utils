@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 
-import { useIsDarkMode } from '../hooks/use-is-darkmode'
+import { useIsDarkMode } from '../hooks/use-is-darkmode.js'
 
 const defaultModes = ['light', 'dark']
 

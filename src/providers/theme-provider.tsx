@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 
-import { useSettings } from '../hooks/use-settings'
+import { useSettings } from '../hooks/use-settings.js'
 
 /**
  * Provider for the theme

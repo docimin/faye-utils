@@ -2,7 +2,7 @@
 
 import { useContext } from 'react'
 
-import { SettingsContext } from '../contexts/settings-context'
+import { SettingsContext } from '../contexts/settings-context.js'
 
 /**
  * Hook to get the settings

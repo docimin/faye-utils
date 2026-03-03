@@ -2,7 +2,7 @@
 
 import { useMedia } from 'react-use'
 
-import { useSettings } from './use-settings'
+import { useSettings } from './use-settings.js'
 
 /**
  * Hook to check if the mode is dark

@@ -1,6 +1,6 @@
 import type { icons } from 'lucide-react'
 
-import type { radii, themes } from './configs/themes'
+import type { radii, themes } from './configs/themes.js'
 
 export type LayoutType = 'vertical' | 'horizontal'
 
