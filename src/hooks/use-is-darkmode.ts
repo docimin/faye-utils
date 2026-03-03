@@ -1,6 +1,6 @@
 'use client'
 
-import { useMedia } from 'react-use'
+import { useMedia } from './use-media.js'
 
 import { useSettings } from './use-settings.js'
 

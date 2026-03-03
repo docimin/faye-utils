@@ -2,7 +2,8 @@
 
 import type { ReactNode } from 'react'
 import { createContext, useCallback, useEffect, useState } from 'react'
-import { useCookie } from 'react-use'
+
+import { useCookie } from '../hooks/use-cookie.js'
 import type { LocaleType, SettingsConfig, SettingsType } from '../types.js'
 
 export const defaultSettings: SettingsType = {

@@ -33,6 +33,8 @@ export { useSettings } from './hooks/use-settings.js'
 // ============================================================================
 export { toast, useToast } from './hooks/use-toast.js'
 export { useDebounce } from './hooks/useDebounce.js'
+export { useCookie } from './hooks/use-cookie.js'
+export { useMedia } from './hooks/use-media.js'
 export {
   isGuestRoute,
   isProtectedRoute,
